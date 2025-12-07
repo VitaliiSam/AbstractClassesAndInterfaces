@@ -106,8 +106,10 @@ namespace ClassLibrary1
             if (isAsc == true)
             {
                 SortAsc();
+            } else
+            {
+                SortDesc();
             }
-            SortDesc();
         }
     }        
 }
