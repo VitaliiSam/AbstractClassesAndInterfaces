@@ -16,7 +16,15 @@ namespace ClassLibrary1
         float Avg();
         bool Search(int valueToSearch);
     }
-    public class MyArray : IOutput, IMath
+    //ISort interface
+    public interface ISort
+    {
+        void SortAsc();
+        void SortDesc();
+        void SortByParam(bool isAsc);
+
+    }
+    public class MyArray : IOutput, IMath, ISort
     {
         private int[] numbers;
         public MyArray (int[] numbers)
@@ -82,6 +90,24 @@ namespace ClassLibrary1
                 }
             }
             return false;
+        }
+        //Sort
+        public void SortAsc()
+        {
+            Array.Sort(numbers);
+        }
+        public void SortDesc()
+        {
+            Array.Sort(numbers);
+            Array.Reverse(numbers);
+        }
+        public void SortByParam(bool isAsc)
+        {
+            if (isAsc == true)
+            {
+                SortAsc();
+            }
+            SortDesc();
         }
     }        
 }
